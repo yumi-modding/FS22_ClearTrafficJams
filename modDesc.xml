@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="69">
+    <author>yumi</author>
+    <version>1.0.0.0</version>        
+    <title>
+        <de>Stau Auflösen</de>
+        <en>Clear Traffic Jams</en>
+        <fr>Éliminer Les Embouteillages</fr>
+    </title>
+    <description>
+        <en><![CDATA[
+If you like to play with traffic, but sometimes gets stuck on narrow roads, this mod can help you.
+You can simply press a key (Ctrl+T by default) to reset the traffic so you can go on your way. In multiplayer, only admin user can run this command.
+        ]]></en>
+        <fr><![CDATA[
+Si vous aimez jouer avec le trafic routier, mais que vous êtes parfois bloqué sur des routes étroites, ce mod peut vous aider.
+Vous pouvez simplement appuyer sur une touche (Ctrl+T par défaut) pour réinitialiser le trafic routier afin de continuer votre chemin. En multijoueur, seul un admin peut lancer cette commande.
+        ]]></fr>
+        <de><![CDATA[
+Wenn Du gerne mit Straßenverkehr spielst, aber manchmal auf engen Straßen stecken bleibst, kann Dir dieser Mod helfen.
+Du kannst einfach eine Taste drücken (Standardmäßig Strg+T), um den Verkehr zurückzusetzen, damit du deinen Weg fortsetzen kannst. Im Mehrspieler-Spiel kann nur der Admin-Benutzer diesen Befehl ausführen.
+        ]]></de>
+    </description>
+    <iconFilename>modIcon.dds</iconFilename>
+    <multiplayer supported="true"/>
+    
+    <extraSourceFiles>
+        <sourceFile filename="src/main.lua" />
+    </extraSourceFiles>
+
+    <actions>
+        <action name="ClearTrafficJams_RESET"/>
+    </actions>
+    <inputBinding>
+        <actionBinding action="ClearTrafficJams_RESET">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lctrl KEY_t"/>
+        </actionBinding>
+    </inputBinding>
+
+    <l10n>
+        <text name="input_ClearTrafficJams_RESET">
+            <fr>Réinitialiser le trafic routier</fr>>
+            <en>Reset traffic</en>
+            <de>Verkehr zurücksetzen</de>
+        </text>
+        <text name="warning_trafficDisable">
+            <fr>Le trafic routier est désactvé dans les paramètres actuels</fr>
+            <en>Traffic is currently disable in settings</en>
+            <de>Der Verkehr ist derzeit in den Einstellungen deaktiviert</de>
+        </text>
+        <text name="warning_masterUser">
+            <fr>Seul l'adiminstrateur peut réinitialiser le trafic routier</fr>
+            <en>Traffic reset is only available for Admin user</en>
+            <de>Das Zurücksetzen des Verkehrs ist nur für Admin-Benutzer verfügbar</de>
+        </text>
+    </l10n> 
+</modDesc>
