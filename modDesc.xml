@@ -6,6 +6,7 @@
         <de>Stau Auflösen</de>
         <en>Clear Traffic Jams</en>
         <fr>Éliminer Les Embouteillages</fr>
+        <pl>Usuń korek</pl>
     </title>
     <description>
         <en><![CDATA[
@@ -20,6 +21,10 @@ Vous pouvez simplement appuyer sur une touche (Ctrl+T par défaut) pour réiniti
 Wenn Du gerne mit Straßenverkehr spielst, aber manchmal auf engen Straßen stecken bleibst, kann Dir dieser Mod helfen.
 Du kannst einfach eine Taste drücken (Standardmäßig Strg+T), um den Verkehr zurückzusetzen, damit du deinen Weg fortsetzen kannst. Im Mehrspieler-Spiel kann nur der Admin-Benutzer diesen Befehl ausführen.
         ]]></de>
+        <pl><![CDATA[
+Jeśli lubisz grać z ruchem drogowym, ale czasami zdarza się ci utknąć w korku, to ten mod jest dla ciebie.
+Możesz po prostu użyć skrótu klawiszowego (Ctrl+T domyślnie), aby zresetować ruch uliczny. W grze wieloosobowej tylko administrator ma dostępną tą opcję.
+        ]]></pl>
     </description>
     <iconFilename>modIcon.dds</iconFilename>
     <multiplayer supported="true"/>
@@ -42,16 +47,19 @@ Du kannst einfach eine Taste drücken (Standardmäßig Strg+T), um den Verkehr z
             <fr>Réinitialiser le trafic routier</fr>>
             <en>Reset traffic</en>
             <de>Verkehr zurücksetzen</de>
+            <pl>Zresetuj ruch drogowy</pl>
         </text>
         <text name="warning_trafficDisable">
             <fr>Le trafic routier est désactvé dans les paramètres actuels</fr>
             <en>Traffic is currently disable in settings</en>
             <de>Der Verkehr ist derzeit in den Einstellungen deaktiviert</de>
+            <pl>Ruch drogowy obecnie wyłączony w ustawieniach</pl>
         </text>
         <text name="warning_masterUser">
             <fr>Seul l'adiminstrateur peut réinitialiser le trafic routier</fr>
             <en>Traffic reset is only available for Admin user</en>
             <de>Das Zurücksetzen des Verkehrs ist nur für Admin-Benutzer verfügbar</de>
+            <pl>Reset ruchu drogowego możliwy tylko przez admina!</pl>
         </text>
     </l10n> 
 </modDesc>
