@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="69">
     <author>yumi</author>
-    <version>1.0.0.0</version>        
+    <version>1.0.1.0</version>        
     <title>
         <de>Stau Auflösen</de>
         <en>Clear Traffic Jams</en>
@@ -44,7 +44,7 @@ Możesz po prostu użyć skrótu klawiszowego (Ctrl+T domyślnie), aby zresetowa
 
     <l10n>
         <text name="input_ClearTrafficJams_RESET">
-            <fr>Réinitialiser le trafic routier</fr>>
+            <fr>Réinitialiser le trafic routier</fr>
             <en>Reset traffic</en>
             <de>Verkehr zurücksetzen</de>
             <pl>Zresetuj ruch drogowy</pl>
@@ -60,6 +60,12 @@ Możesz po prostu użyć skrótu klawiszowego (Ctrl+T domyślnie), aby zresetowa
             <en>Traffic reset is only available for Admin user</en>
             <de>Das Zurücksetzen des Verkehrs ist nur für Admin-Benutzer verfügbar</de>
             <pl>Reset ruchu drogowego możliwy tylko przez admina!</pl>
+        </text>
+        <text name="ui_disableTrafficForWorkers">
+            <fr>Désactiver le trafic routier lorsque les ouvriers sont sur la route ?</fr>
+            <en>Disable traffic while workers are on roads?</en>
+            <de></de>
+            <pl></pl>
         </text>
     </l10n> 
 </modDesc>

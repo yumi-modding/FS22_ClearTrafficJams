@@ -1,9 +1,21 @@
 
 ClearTrafficJams = {};
 
-ClearTrafficJams.debug = false --true --
+ClearTrafficJams.debug = true --false --
 modDirectory = g_currentModDirectory
 local ClearTrafficJams_mt = Class(ClearTrafficJams)
+
+-- TODO: Tests
+-- Traffic On | Goto Job 1st launch | DisableForWorkers Yes 
+-- Traffic On | Goto Job next launch
+
+-- Traffic Off | Goto Job 1st launch
+-- Traffic Off | Goto Job next launch
+
+-- Traffic On | Goto Job 1st launch | DisableForWorkers No 
+-- Traffic On | Goto Job next launch
+--
+--
 
 function ClearTrafficJams:new(mission, i18n, inputBinding, gui, soundManager, modDirectory, modName)
     if ClearTrafficJams.debug then print("ClearTrafficJams:new") end
@@ -15,6 +27,9 @@ function ClearTrafficJams:new(mission, i18n, inputBinding, gui, soundManager, mo
     self.modName = modName
 
     self.mission = mission
+
+    self.disableTrafficForWorkers = nil
+    self.trafficWasDisable = false
 
     return self
 end
@@ -39,7 +54,14 @@ function ClearTrafficJams:registerActionEvents()
 end
 -- Only needed for global action event 
 
--- @doc Switch directly to another worker
+function ClearTrafficJams.registerEventListeners(vehicleType)
+    if ClearTrafficJams.debug then print("ClearTrafficJams:registerEventListeners()") end
+    
+	SpecializationUtil.registerEventListener(vehicleType, "onAIDriveableStart", AIDrivable)
+	SpecializationUtil.registerEventListener(vehicleType, "onAIDriveableEnd", AIDrivable)
+
+end
+
 function ClearTrafficJams:resetTraffic(actionName, keyStatus)
     if ClearTrafficJams.debug then print("ContractorMod:resetTraffic") end
     if ClearTrafficJams.debug then print("actionName "..tostring(actionName)) end
@@ -62,7 +84,7 @@ end
 
 ---Called when the player clicks the Start button
 function ClearTrafficJams:onMissionStart(mission)
-    print("ClearTrafficJams:onMissionStart")
+    if ClearTrafficJams.debug then print("ClearTrafficJams:onMissionStart") end
 
 
 end
@@ -72,16 +94,72 @@ end
 ------------------------------------------------
 -- Mission is loading
 function ClearTrafficJams:onMissionLoading()
-    print("ClearTrafficJams:onMissionLoading")
+    if ClearTrafficJams.debug then print("ClearTrafficJams:onMissionLoading") end
 
 end
 
 ---Mission was loaded (without vehicles and items)
 function ClearTrafficJams:onMissionLoaded(mission)
-    print("ClearTrafficJams:onMissionLoaded")
+    if ClearTrafficJams.debug then print("ClearTrafficJams:onMissionLoaded") end
 
 end
 
 function ClearTrafficJams:update(dt)
 
+end
+
+-- Acivate beacon when AI driving but not during fieldWork
+function ClearTrafficJams:updateAILights(isWorking)
+    -- if ClearTrafficJams.debug then print("ClearTrafficJams:updateAILights") end
+	local spec = self.spec_lights
+
+    spec:setBeaconLightsVisibility(not isWorking)
+    -- if ClearTrafficJams.debug then print("setBeaconLightsVisibility "..(isWorking and 'Off' or 'On')) end
+end
+
+function ClearTrafficJams:setTrafficForWorkers()
+    local function disableTraffic(yes)
+        if yes then
+            g_cleartrafficjams.disableTrafficForWorkers = true
+            print("disable traffic")
+        else
+            g_cleartrafficjams.disableTrafficForWorkers = false
+            print("keep traffic")
+        end
+    end
+    -- TODO: Test user is Admin ?
+    g_gui:showYesNoDialog({
+        text = g_i18n:getText("ui_disableTrafficForWorkers"),
+        callback = disableTraffic,
+        yesButton = g_i18n:getText("button_yes"),
+        noButton = g_i18n:getText("button_no")
+    })
+end
+
+
+function AIDrivable:onAIDriveableStart()
+    if ClearTrafficJams.debug then print("AIDrivable:onAIDriveableStart") end
+    
+    if g_currentMission.missionInfo.trafficEnabled then
+        if g_cleartrafficjams.disableTrafficForWorkers == nil then
+            ClearTrafficJams:setTrafficForWorkers()
+        end
+
+        if g_cleartrafficjams.disableTrafficForWorkers then
+            if ClearTrafficJams.debug then print("setTrafficEnabled(false)") end
+            g_currentMission:setTrafficEnabled(false)
+        end
+    else
+        g_cleartrafficjams.trafficWasDisable = true
+    end
+end
+
+-- set back traffic
+function AIDrivable:onAIDriveableEnd()
+    if ClearTrafficJams.debug then print("AIDrivable:onAIDriveableEnd") end
+    
+    if g_cleartrafficjams.disableTrafficForWorkers and not g_cleartrafficjams.trafficWasDisable then
+        if ClearTrafficJams.debug then print("setTrafficEnabled(true)") end
+        g_currentMission:setTrafficEnabled(true)
+    end
 end

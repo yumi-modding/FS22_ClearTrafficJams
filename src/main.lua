@@ -66,6 +66,9 @@ local function init()
     Mission00.onStartMission = Utils.appendedFunction(Mission00.onStartMission, startMission)
     FSBaseMission.registerActionEvents = Utils.appendedFunction(FSBaseMission.registerActionEvents, ClearTrafficJams.registerActionEvents);
 
+    Lights.updateAILights = Utils.appendedFunction(Lights.updateAILights, ClearTrafficJams.updateAILights)
+    AIDrivable.registerEventListeners = Utils.appendedFunction(AIDrivable.registerEventListeners, ClearTrafficJams.registerEventListeners);
+
 end
 
 init()
