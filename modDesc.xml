@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="75">
+<modDesc descVersion="77">
     <author>yumi</author>
     <version>1.0.1.0</version>        
     <title>
         <de>Stau Auflösen</de>
         <en>Clear Traffic Jams</en>
         <fr>Éliminer Les Embouteillages</fr>
-        <pl>Usuń korek</pl>
+        <pl>Usuń Korek</pl>
     </title>
     <description>
         <en><![CDATA[
@@ -46,7 +46,7 @@ New in v1.0.1.0
 - Ruch może zostać automatycznie wyłączony, gdy pracownik porusza się po drogach
         ]]></pl>
     </description>
-    <iconFilename>modIcon.dds</iconFilename>
+    <iconFilename>icon_ClearTrafficJams.dds</iconFilename>
     <multiplayer supported="true"/>
     
     <extraSourceFiles>
