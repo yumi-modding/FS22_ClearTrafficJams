@@ -1,7 +1,6 @@
-
 ClearTrafficJams = {};
 
-ClearTrafficJams.debug = true --false --
+ClearTrafficJams.debug = false --true --
 modDirectory = g_currentModDirectory
 local ClearTrafficJams_mt = Class(ClearTrafficJams)
 
@@ -56,8 +55,9 @@ end
 
 function ClearTrafficJams.registerEventListeners(vehicleType)
     if ClearTrafficJams.debug then print("ClearTrafficJams:registerEventListeners()") end
-    
+
 	SpecializationUtil.registerEventListener(vehicleType, "onAIDriveableStart", AIDrivable)
+	SpecializationUtil.registerEventListener(vehicleType, "onAIDriveableActive", AIDrivable)
 	SpecializationUtil.registerEventListener(vehicleType, "onAIDriveableEnd", AIDrivable)
 
 end
@@ -151,6 +151,15 @@ function AIDrivable:onAIDriveableStart()
         end
     else
         g_cleartrafficjams.trafficWasDisable = true
+    end
+end
+
+function AIDrivable:onAIDriveableActive()
+    if ClearTrafficJams.debug then print("AIDrivable:onAIDriveableActive") end
+    
+    if g_currentMission.missionInfo.trafficEnabled and g_cleartrafficjams.disableTrafficForWorkers then
+        if ClearTrafficJams.debug then print("setTrafficEnabled(false)") end
+        g_currentMission:setTrafficEnabled(false)
     end
 end
 
