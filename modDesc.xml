@@ -12,18 +12,38 @@
         <en><![CDATA[
 If you like to play with traffic, but sometimes gets stuck on narrow roads, this mod can help you.
 You can simply press a key (Ctrl+T by default) to reset the traffic so you can go on your way. In multiplayer, only admin user can run this command.
+
+==== CHANGELOG ====
+New in v1.0.1.0
+- Workers activate beacon lights when driving on roads
+- Traffic can be automatically disable while a worker is driving on roads
         ]]></en>
         <fr><![CDATA[
 Si vous aimez jouer avec le trafic routier, mais que vous êtes parfois bloqué sur des routes étroites, ce mod peut vous aider.
 Vous pouvez simplement appuyer sur une touche (Ctrl+T par défaut) pour réinitialiser le trafic routier afin de continuer votre chemin. En multijoueur, seul un admin peut lancer cette commande.
+
+==== CHANGELOG ====
+New in v1.0.1.0
+- Les ouvriers activent leur gyrophare lorsqu'ils conduisent sur les routes
+- La circulation peut être automatiquement désactivée lorsqu'un ouvrier conduit sur les routes
         ]]></fr>
         <de><![CDATA[
 Wenn Du gerne mit Straßenverkehr spielst, aber manchmal auf engen Straßen stecken bleibst, kann Dir dieser Mod helfen.
 Du kannst einfach eine Taste drücken (Standardmäßig Strg+T), um den Verkehr zurückzusetzen, damit du deinen Weg fortsetzen kannst. Im Mehrspieler-Spiel kann nur der Admin-Benutzer diesen Befehl ausführen.
+
+==== CHANGELOG ====
+New in v1.0.1.0
+- Arbeiter aktivieren beim Fahren auf Straßen Rundumleuchten
+- Der Verkehr kann automatisch deaktiviert werden, während ein Arbeiter auf der Straße fährt
         ]]></de>
         <pl><![CDATA[
 Jeśli lubisz grać z ruchem drogowym, ale czasami zdarza się ci utknąć w korku, to ten mod jest dla ciebie.
 Możesz po prostu użyć skrótu klawiszowego (Ctrl+T domyślnie), aby zresetować ruch uliczny. W grze wieloosobowej tylko administrator ma dostępną tą opcję.
+
+==== CHANGELOG ====
+New in v1.0.1.0
+- Pracownicy włączają światła ostrzegawcze podczas jazdy po drogach
+- Ruch może zostać automatycznie wyłączony, gdy pracownik porusza się po drogach
         ]]></pl>
     </description>
     <iconFilename>modIcon.dds</iconFilename>
@@ -64,8 +84,8 @@ Możesz po prostu użyć skrótu klawiszowego (Ctrl+T domyślnie), aby zresetowa
         <text name="ui_disableTrafficForWorkers">
             <fr>Désactiver le trafic routier lorsque les ouvriers sont sur la route ?</fr>
             <en>Disable traffic while workers are on roads?</en>
-            <de></de>
-            <pl></pl>
+            <de>Den Verkehr sperren, während Arbeiter auf der Straße sind?</de>
+            <pl>Wyłączyć ruch, gdy pracownicy są na drogach?</pl>
         </text>
     </l10n> 
 </modDesc>
