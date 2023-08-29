@@ -121,10 +121,10 @@ function ClearTrafficJams:setTrafficForWorkers()
     local function disableTraffic(yes)
         if yes then
             g_cleartrafficjams.disableTrafficForWorkers = true
-            print("disable traffic")
+            if ClearTrafficJams.debug then print("disable traffic") end
         else
             g_cleartrafficjams.disableTrafficForWorkers = false
-            print("keep traffic")
+            if ClearTrafficJams.debug then print("keep traffic") end
         end
     end
     -- TODO: Test user is Admin ?
